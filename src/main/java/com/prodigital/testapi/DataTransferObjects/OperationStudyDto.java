@@ -17,6 +17,7 @@ public class OperationStudyDto {
     private String operatorName;
     private String userName;
     private String observerName;
+    private String operationDescription;
 
     @JsonProperty("Branch")
     public String getBranch() { return branch; }
@@ -68,6 +69,10 @@ public class OperationStudyDto {
     @JsonProperty("Observer")
     public void setObserverName(String value) { this.observerName = value; }
 
+    @JsonProperty("OperationDescription")
+    public String getOperationDescription() { return operationDescription; }
+    @JsonProperty("OperationDescription")
+    public void setOperationDescription(String value) { this.operationDescription = value; }
 
 
 }

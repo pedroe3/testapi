@@ -1,21 +1,9 @@
-package com.prodigital.testapi.Entities;
+package com.prodigital.testapi.DataTransferObjects;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.hibernate.annotations.CreationTimestamp;
-
-import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
-
-@Entity
-public class OperationStudy {
-
-    @Id
-    @GeneratedValue
-    private Integer id;
+public class StepsDto {
 
     private String branch;
 
@@ -35,33 +23,35 @@ public class OperationStudy {
 
     private String userName;
 
+    private Date recordDate;
+
     private String observerName;
 
     private String ratingPercent;
 
-    @CreationTimestamp
-    private Date entryDate;
+    private int step;
 
-    @OneToMany(mappedBy = "operationStudy", cascade = CascadeType.ALL , orphanRemoval = true, fetch = FetchType.LAZY)
-    @JsonIgnore
-    private List<StepsOperation> stepsOperation = new ArrayList<>();
+    private String description;
 
-    public OperationStudy() {}
+    private double manTime;
 
-    public Integer getId() {
-        return id;
-    }
+    private double machineTime;
 
-    public void setId(Integer id) {
-        this.id = id;
+    private double movementTime;
+
+    private double setupTime;
+
+
+
+    public StepsDto() {
     }
 
     public String getBranch() {
         return branch;
     }
 
-    public void setBranch(String site) {
-        this.branch = site;
+    public void setBranch(String branch) {
+        this.branch = branch;
     }
 
     public String getBuilding() {
@@ -95,6 +85,56 @@ public class OperationStudy {
     public void setOperationNumber(String operationNumber) {
         this.operationNumber = operationNumber;
     }
+
+
+    public double getManTime() {
+        return manTime;
+    }
+
+    public void setManTime(double manTime) {
+        this.manTime = manTime;
+    }
+
+    public double getMachineTime() {
+        return machineTime;
+    }
+
+    public void setMachineTime(double machineTime) {
+        this.machineTime = machineTime;
+    }
+
+    public double getMovementTime() {
+        return movementTime;
+    }
+
+    public void setMovementTime(double movementTime) {
+        this.movementTime = movementTime;
+    }
+
+    public double getSetupTime() {
+        return setupTime;
+    }
+
+    public void setSetupTime(double setupTime) {
+        this.setupTime = setupTime;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public int getStep() {
+        return step;
+    }
+
+    public void setStep(int step) {
+        this.step = step;
+    }
+
 
     public Date getDateObserved() {
         return dateObserved;
@@ -136,20 +176,12 @@ public class OperationStudy {
         this.ratingPercent = ratingPercent;
     }
 
-    public Date getEntryDate() {
-        return entryDate;
+    public Date getRecordDate() {
+        return recordDate;
     }
 
-    public void setEntryDate(Date entryDate) {
-        this.entryDate = entryDate;
-    }
-
-    public List<StepsOperation> getStepsOperation() {
-        return stepsOperation;
-    }
-
-    public void setStepsOperation(List<StepsOperation> stepsOperation) {
-        this.stepsOperation = stepsOperation;
+    public void setRecordDate(Date recordDate) {
+        this.recordDate = recordDate;
     }
 
     public String getOperationDescription() {
